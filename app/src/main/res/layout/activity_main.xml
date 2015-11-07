@@ -1,0 +1,221 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout"
+            android:longClickable="false">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:onClick="Delete"
+                android:text="@string/btnDel"
+                android:id="@+id/btnDel"
+                android:layout_gravity="right" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:maxLength="32"
+                android:editable="false"
+                android:id="@+id/textViewDisplay"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="GetNum"
+                    android:text="@string/btnSeven"
+                    android:id="@+id/btnSeven"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="GetNum"
+                    android:text="@string/btnEight"
+                    android:id="@+id/btnEight"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnNine"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnNine"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/btnDiv"
+                    android:id="@+id/btnDiv"
+                    android:onClick="GetOperator"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnFour"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnFour"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnFive"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnFive"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnSix"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnSix"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/btnMulti"
+                    android:onClick="GetOperator"
+                    android:id="@+id/btnMulti"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnOne"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnOne"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnTwo"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnTwo"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnThree"
+                    android:onClick="GetNum"
+                    android:id="@+id/btnThree"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/btnSub"
+                    android:onClick="GetSub"
+                    android:id="@+id/btnSub"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnDOT"
+                    android:onClick="GetDot"
+                    android:id="@+id/btnDot"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="GetNum"
+                    android:text="@string/btnZero"
+                    android:id="@+id/btnZero"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnEqual"
+                    android:onClick="Calculate"
+                    android:id="@+id/btnEqual"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/btnAdd"
+                    android:onClick="GetOperator"
+                    android:id="@+id/btnAdd"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnHistory"
+                android:onClick="showHistory"
+                android:id="@+id/btnHistory" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
