@@ -32,12 +32,12 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1">
 
             <LinearLayout
@@ -49,7 +49,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnSeven"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnSeven"
                     android:layout_weight="1" />
 
@@ -57,7 +57,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnEight"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnEight"
                     android:layout_weight="1" />
 
@@ -65,7 +65,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnNine"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnNine"
                     android:layout_weight="1" />
 
@@ -73,7 +73,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnDiv"
-                    android:onClick="GetChar"
+                    android:onClick="GetOperator"
                     android:id="@+id/btnDiv"
                     android:layout_weight="1" />
 
@@ -88,7 +88,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnFour"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnFour"
                     android:layout_weight="1" />
 
@@ -97,14 +97,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/btnFive"
                     android:id="@+id/btnFive"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:layout_weight="1" />
 
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnSix"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnSix"
                     android:layout_weight="1" />
 
@@ -112,7 +112,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnMulti"
-                    android:onClick="GetChar"
+                    android:onClick="GetOperator"
                     android:id="@+id/btnMulti"
                     android:layout_weight="1" />
             </LinearLayout>
@@ -126,7 +126,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnOne"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnOne"
                     android:layout_weight="1" />
 
@@ -134,7 +134,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnTwo"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnTwo"
                     android:layout_weight="1" />
 
@@ -142,7 +142,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnThree"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnThree"
                     android:layout_weight="1" />
 
@@ -150,7 +150,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnSub"
-                    android:onClick="GetChar"
+                    android:onClick="GetSub"
                     android:id="@+id/btnSub"
                     android:layout_weight="1" />
             </LinearLayout>
@@ -164,7 +164,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnDOT"
-                    android:onClick="GetChar"
+                    android:onClick="GetDot"
                     android:id="@+id/btnDot"
                     android:layout_weight="1" />
 
@@ -172,7 +172,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnZero"
-                    android:onClick="GetChar"
+                    android:onClick="GetNum"
                     android:id="@+id/btnZero"
                     android:layout_weight="1" />
 
@@ -180,7 +180,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnEqual"
-                    android:onClick="GetChar"
+                    android:onClick="Calculate"
                     android:id="@+id/btnEqual"
                     android:layout_weight="1" />
 
@@ -188,7 +188,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnAdd"
-                    android:onClick="GetChar"
+                    android:onClick="GetOperator"
                     android:id="@+id/btnAdd"
                     android:layout_weight="1" />
             </LinearLayout>
@@ -199,6 +199,19 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/btnHistory"
+            android:onClick="showHistory"
+            android:id="@+id/button" />
     </LinearLayout>
 
 </LinearLayout>

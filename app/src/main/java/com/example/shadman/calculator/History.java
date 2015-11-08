@@ -45,12 +45,12 @@ public class History {
                 while ((message = bufferedReader.readLine()) != null) {
                     stringBuffer.append(message + "\n");
                 }
-                return message;
+                return stringBuffer.toString();
             } catch (FileNotFoundException e){
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        return "Something went wrong!";
+        return "";
     }
 }

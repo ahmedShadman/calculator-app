@@ -18,6 +18,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringBufferInputStream;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.StringTokenizer;
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 
@@ -109,16 +111,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void Calculate (View v) {
         String str = display.getText().toString();
-        if (!str.isEmpty()) {
+        if (isOperationValid(str)) {
             DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
             Double calculation;
             try {
                 calculation = doubleEvaluator.evaluate(str);
-                if (calculation.isNaN() || calculation.isInfinite() || calculation.doubleValue() == 0.0) {
+                if (calculation.isNaN() || calculation.isInfinite()) {
                     display.setText("0");
                 } else {
+                    String currentDateTime = DateFormat.getDateTimeInstance().format(new Date());
                     History history = new History(this);
-                    history.writeMessage(str+" = "+String.valueOf(calculation));
+                    history.writeMessage(currentDateTime+": "+str+" = "+String.valueOf(calculation)+"\n");
                     display.setText(String.valueOf(calculation));
                 }
             } catch (Exception e) {
@@ -141,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             char[] strArr = string.toCharArray();
 
             while (index >= 0) {
-                if (isOperator(strArr[index])) {
+                if (isOperator(strArr[index]) || strArr[index] == '.') {
                     break;
                 } else {
                     return true;
@@ -175,6 +178,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean isOperator(char ch) {
         if (ch == '-' || ch == '+' || ch == '/' || ch == '*') {
             return true;
+        }
+        return false;
+    }
+
+    public boolean isOperationValid(String str) {
+        if(!str.isEmpty()) {
+            int len = str.length()-1;
+            char[] chrArr = str.toCharArray();
+            while (len >= 0) {
+                if(isOperator(chrArr[len]))
+                {
+                    return true;
+                }
+                len--;
+            }
         }
         return false;
     }
