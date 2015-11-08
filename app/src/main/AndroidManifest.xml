@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HistoryActivity" >
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_second">
             <intent-filter>
                 <action android:name="com.example.shadman.calculator.HistoryActivity" />
 

@@ -21,5 +21,13 @@
     <string name="btnSeven">7</string>
     <string name="btnEight">8</string>
     <string name="btnNine">9</string>
-    <string name="title_activity_second">SecondActivity</string>
+    <!-- Scientific -->
+    <string name="btnSine">sin(</string>
+    <string name="btnCos">cos(</string>
+    <string name="btnTan">tan(</string>
+    <string name="btnLog">log(</string>
+    <string name="btnSquare">^x</string>
+    <string name="btnEndBrace">)</string>
+    <!-- No Idea -->
+    <string name="title_activity_second">Calculator|History</string>
 </resources>
