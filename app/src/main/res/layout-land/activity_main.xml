@@ -222,6 +222,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/btnPrefClear"
                     android:id="@+id/btnPrefClear"
+                    android:onClick="clear"
                     android:layout_weight="1" />
 
                 <Button
@@ -229,6 +230,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/btnPrefRecord"
                     android:id="@+id/btnPrefRec"
+                    android:onClick="save"
                     android:layout_weight="1" />
 
                 <Button
@@ -236,6 +238,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/btnPrefRetrive"
                     android:id="@+id/btnPrefRetrive"
+                    android:onClick="retrive"
                     android:layout_weight="1" />
             </LinearLayout>
 
