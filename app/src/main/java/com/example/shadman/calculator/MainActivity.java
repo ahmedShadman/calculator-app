@@ -1,10 +1,12 @@
 package com.example.shadman.calculator;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 
@@ -17,11 +19,14 @@ public class MainActivity extends AppCompatActivity {
     DoubleEvaluator calc;
     boolean clearFlag = false;
     static final String PREF_FILE = "Calculator_Pref_File";
+    static final String PREF_NAME = "expr";
+    static final String PREF_DEFAULT_VALUE = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         display = (EditText) findViewById(R.id.textViewDisplay);
     }
 
@@ -351,5 +356,42 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         return false;
+    }
+
+    public void save(View v) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(PREF_NAME, display.getText().toString());
+
+        editor.commit();
+
+        Toast.makeText(this, "Stored", Toast.LENGTH_LONG).show();
+    }
+
+    public void clear(View v) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PREF_NAME,PREF_DEFAULT_VALUE);
+        editor.commit();
+        Toast.makeText(this, "Cleared", Toast.LENGTH_LONG).show();
+    }
+
+    public void retrive(View v) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences(PREF_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String expr = sharedPreferences.getString(PREF_NAME, PREF_DEFAULT_VALUE);
+
+        if (expr.equals(PREF_DEFAULT_VALUE)) {
+            Toast.makeText(this, "No Data to display", Toast.LENGTH_LONG).show();
+            display.setText("");
+        } else {
+            Toast.makeText(this, "Data loaded successfully", Toast.LENGTH_LONG).show();
+            display.setText(expr);
+        }
     }
 }
