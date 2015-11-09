@@ -9,13 +9,13 @@ import android.widget.EditText;
 import com.fathzer.soft.javaluator.DoubleEvaluator;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     EditText display;
     DoubleEvaluator calc;
     boolean clearFlag = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -216,10 +216,11 @@ public class MainActivity extends AppCompatActivity {
                     display.setText("Math Error!");
                     clearFlag = true;
                 } else {
+                    DecimalFormat decimalFormat = new DecimalFormat("#.######");
+                    display.setText(String.valueOf(decimalFormat.format(calculation)));
                     String currentDateTime = DateFormat.getDateTimeInstance().format(new Date());
                     History history = new History(this);
-                    history.writeMessage(currentDateTime + ": " + str + " = " + String.valueOf(calculation) + "\n");
-                    display.setText(String.valueOf(calculation));
+                    history.writeMessage(currentDateTime + ": " + str + " = " + String.valueOf(decimalFormat.format(calculation)) + "\n");
                 }
             }catch (IllegalArgumentException e) {
                 if(isEndBraceValid(str)) {
