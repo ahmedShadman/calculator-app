@@ -1,19 +1,20 @@
 package com.example.shadman.calculator;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+
+import com.fathzer.soft.javaluator.DoubleEvaluator;
 
 import java.text.DateFormat;
 import java.util.Date;
 
-import com.fathzer.soft.javaluator.DoubleEvaluator;
-
 public class MainActivity extends AppCompatActivity {
     EditText display;
     DoubleEvaluator calc;
+    boolean clearFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,145 +29,160 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void GetNum(View v) {
-        switch (v.getId()) {
-            case R.id.btnZero:
-                display.append("0");
-                break;
-            case R.id.btnOne:
-                display.append("1");
-                break;
-            case R.id.btnTwo:
-                display.append("2");
-                break;
-            case R.id.btnThree:
-                display.append("3");
-                break;
-            case R.id.btnFour:
-                display.append("4");
-                break;
-            case R.id.btnFive:
-                display.append("5");
-                break;
-            case R.id.btnSix:
-                display.append("6");
-                break;
-            case R.id.btnSeven:
-                display.append("7");
-                break;
-            case R.id.btnEight:
-                display.append("8");
-                break;
-            case R.id.btnNine:
-                display.append("9");
-                break;
-
+        if (!clearFlag) {
+            switch (v.getId()) {
+                case R.id.btnZero:
+                    display.append("0");
+                    break;
+                case R.id.btnOne:
+                    display.append("1");
+                    break;
+                case R.id.btnTwo:
+                    display.append("2");
+                    break;
+                case R.id.btnThree:
+                    display.append("3");
+                    break;
+                case R.id.btnFour:
+                    display.append("4");
+                    break;
+                case R.id.btnFive:
+                    display.append("5");
+                    break;
+                case R.id.btnSix:
+                    display.append("6");
+                    break;
+                case R.id.btnSeven:
+                    display.append("7");
+                    break;
+                case R.id.btnEight:
+                    display.append("8");
+                    break;
+                case R.id.btnNine:
+                    display.append("9");
+                    break;
+            }
         }
     }
 
     public void GetDot(View v) {
-        if(isDotValid(display.getText().toString())) {
-            display.append(".");
+        if (!clearFlag) {
+            if(isDotValid(display.getText().toString())) {
+                display.append(".");
+            }
         }
     }
 
     public void GetSub(View v) {
-        String str = display.getText().toString();
-        if(str.isEmpty() && !isOperatorValid(str)) {
-            display.append("-");
-        } else {
-            if (isOperatorValid(str)) {
+        if (!clearFlag) {
+            String str = display.getText().toString();
+            if(str.isEmpty() && !isOperatorValid(str)) {
                 display.append("-");
+            } else {
+                if (isOperatorValid(str)) {
+                    display.append("-");
+                }
             }
         }
     }
 
     public void GetOperator (View v) {
-        if (isOperatorValid(display.getText().toString())) {
-            switch (v.getId()) {
-                case R.id.btnAdd:
-                    display.append("+");
-                    break;
-                case R.id.btnDiv:
-                    display.append("/");
-                    break;
-                case R.id.btnMulti:
-                    display.append("*");
-                    break;
+        if (!clearFlag) {
+            if (isOperatorValid(display.getText().toString())) {
+                switch (v.getId()) {
+                    case R.id.btnAdd:
+                        display.append("+");
+                        break;
+                    case R.id.btnDiv:
+                        display.append("/");
+                        break;
+                    case R.id.btnMulti:
+                        display.append("*");
+                        break;
+                }
             }
         }
     }
 
     public void Get_SOpertator(View v) {
-        String str = display.getText().toString();
-        if(str.isEmpty()) {
-            switch (v.getId()) {
-                case R.id.btnSine:
-                    display.append("sin(");
-                    break;
-                case R.id.btnCos:
-                    display.append("cos(");
-                    break;
-                case R.id.btnTan:
-                    display.append("tan(");
-                    break;
-                case R.id.btnLog:
-                    display.append("log(");
-                    break;
-            }
-        } else {
-            int index = str.length()-1;
-            switch (v.getId()) {
-                case R.id.btnSine:
-                    if(isOperator(str.charAt(index))){
+        if (!clearFlag) {
+            String str = display.getText().toString();
+            if(str.isEmpty()) {
+                switch (v.getId()) {
+                    case R.id.btnSine:
                         display.append("sin(");
-                    } else if (isNumber(str) || str.charAt(index) == ')') {
-                        display.append("*sin(");
-                    }
-                    break;
-                case R.id.btnCos:
-                    if(isOperator(str.charAt(index))){
+                        break;
+                    case R.id.btnCos:
                         display.append("cos(");
-                    } else if (isNumber(str) || str.charAt(index) == ')') {
-                        display.append("*cos(");
-                    }
-                    break;
-                case R.id.btnTan:
-                    if(isOperator(str.charAt(index))){
+                        break;
+                    case R.id.btnTan:
                         display.append("tan(");
-                    } else if (isNumber(str) || str.charAt(index) == ')') {
-                        display.append("*tan(");
-                    }
-                    break;
-                case R.id.btnLog:
-                    if(isOperator(str.charAt(index))){
+                        break;
+                    case R.id.btnLog:
                         display.append("log(");
-                    } else if (isNumber(str) || str.charAt(index) == ')') {
-                        display.append("*log(");
-                    }
-                    break;
+                        break;
+                }
+            } else {
+                int index = str.length()-1;
+                switch (v.getId()) {
+                    case R.id.btnSine:
+                        if(isOperator(str.charAt(index))){
+                            display.append("sin(");
+                        } else if (isNumber(str) || str.charAt(index) == ')') {
+                            display.append("*sin(");
+                        }
+                        break;
+                    case R.id.btnCos:
+                        if(isOperator(str.charAt(index))){
+                            display.append("cos(");
+                        } else if (isNumber(str) || str.charAt(index) == ')') {
+                            display.append("*cos(");
+                        }
+                        break;
+                    case R.id.btnTan:
+                        if(isOperator(str.charAt(index))){
+                            display.append("tan(");
+                        } else if (isNumber(str) || str.charAt(index) == ')') {
+                            display.append("*tan(");
+                        }
+                        break;
+                    case R.id.btnLog:
+                        if(isOperator(str.charAt(index))){
+                            display.append("log(");
+                        } else if (isNumber(str) || str.charAt(index) == ')') {
+                            display.append("*log(");
+                        }
+                        break;
+                }
             }
         }
     }
 
     public void GetSquare(View v) {
-        if(!display.getText().toString().isEmpty()) {
-            String str = display.getText().toString();
-            int lastIndex = str.length()-1;
-            if(isNumber(str) || str.charAt(lastIndex) == ')') {
-                display.append("^");
+        if (!clearFlag) {
+            if(!display.getText().toString().isEmpty()) {
+                String str = display.getText().toString();
+                int lastIndex = str.length()-1;
+                if(isNumber(str) || str.charAt(lastIndex) == ')') {
+                    display.append("^");
+                }
             }
         }
     }
 
     public void GetEndBrace(View v) {
-        if(isEndBraceValid(display.getText().toString())) {
-            display.append(")");
+        if (!clearFlag) {
+            if(isEndBraceValid(display.getText().toString())) {
+                display.append(")");
+            }
         }
     }
 
-
-    public void Calculate (View v) {
-        String str = display.getText().toString();
+    public void GetCalculation(View v) {
+        if(!clearFlag) {
+            Calculate();
+        }
+        /*String str = display.getText().toString();
         if (isOperationValid(str)) {
             DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
             Double calculation;
@@ -185,6 +201,40 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 display.setText("");
             }
+        }*/
+    }
+
+
+    public void Calculate() {
+        String str = display.getText().toString();
+        if (isOperationValid(str)) {
+            DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
+            Double calculation;
+            try {
+                calculation = doubleEvaluator.evaluate(str);
+                if (calculation.isNaN() || calculation.isInfinite()) {
+                    display.setText("Math Error!");
+                    clearFlag = true;
+                } else {
+                    String currentDateTime = DateFormat.getDateTimeInstance().format(new Date());
+                    History history = new History(this);
+                    history.writeMessage(currentDateTime + ": " + str + " = " + String.valueOf(calculation) + "\n");
+                    display.setText(String.valueOf(calculation));
+                }
+            }catch (IllegalArgumentException e) {
+                if(isEndBraceValid(str)) {
+                    display.append(")");
+                    Calculate();
+                } else if (isOperator(str.charAt(str.length()-1))) {
+                    display.setText("Syntex Error!");
+                    clearFlag = true;
+                } else {
+                    display.setText("Math Error!");
+                    clearFlag = true;
+                }
+            } catch (Exception e) {
+                display.setText("");
+            }
         }
     }
 
@@ -196,6 +246,9 @@ public class MainActivity extends AppCompatActivity {
             if(string.charAt(index) == '(')
             {
                 display.setText(string.substring(0,length-4));
+            } else if (string.charAt(index) == '!') {
+                display.setText("");
+                clearFlag = false;
             } else {
                 display.setText(string.substring(0,length-1));
             }
@@ -252,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
             int len = str.length()-1;
             char[] chrArr = str.toCharArray();
             while (len >= 0) {
-                if(isOperator(chrArr[len]) || chrArr[len] == ')' || chrArr[len] == '^')
+                if(isOperator(chrArr[len]) || chrArr[len] == ')' || chrArr[len] == '^' || chrArr[len] == '(')
                 {
                     return true;
                 }
