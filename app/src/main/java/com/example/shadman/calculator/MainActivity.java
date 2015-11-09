@@ -16,16 +16,18 @@ public class MainActivity extends AppCompatActivity {
     EditText display;
     DoubleEvaluator calc;
     boolean clearFlag = false;
+    static final String PREF_FILE = "Calculator_Pref_File";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        display = (EditText) findViewById(R.id.textViewDisplay);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        display = (EditText) findViewById(R.id.textViewDisplay);
     }
 
     public void GetNum(View v) {

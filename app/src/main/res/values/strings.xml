@@ -28,6 +28,10 @@
     <string name="btnLog">log(</string>
     <string name="btnSquare">^x</string>
     <string name="btnEndBrace">)</string>
-    <!-- No Idea -->
+    <!-- Preferences-->
+    <string name="btnPrefRetrive">M+</string>
+    <string name="btnPrefClear">MC</string>
+    <string name="btnPrefRecord">MR</string>
+    <!-- Activity Titile -->
     <string name="title_activity_second">Calculator|History</string>
 </resources>
