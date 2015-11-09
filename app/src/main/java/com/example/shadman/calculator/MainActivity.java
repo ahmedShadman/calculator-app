@@ -366,8 +366,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(PREF_NAME, display.getText().toString());
 
         editor.commit();
-
-        Toast.makeText(this, "Stored", Toast.LENGTH_LONG).show();
     }
 
     public void clear(View v) {
@@ -376,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(PREF_NAME,PREF_DEFAULT_VALUE);
         editor.commit();
-        Toast.makeText(this, "Cleared", Toast.LENGTH_LONG).show();
+        display.setText("");
     }
 
     public void retrive(View v) {
@@ -387,10 +385,9 @@ public class MainActivity extends AppCompatActivity {
         String expr = sharedPreferences.getString(PREF_NAME, PREF_DEFAULT_VALUE);
 
         if (expr.equals(PREF_DEFAULT_VALUE)) {
-            Toast.makeText(this, "No Data to display", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "No Data to display", Toast.LENGTH_SHORT).show();
             display.setText("");
         } else {
-            Toast.makeText(this, "Data loaded successfully", Toast.LENGTH_LONG).show();
             display.setText(expr);
         }
     }

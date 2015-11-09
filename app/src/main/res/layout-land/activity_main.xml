@@ -42,7 +42,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -219,6 +220,33 @@
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:text="@string/btnPrefClear"
+                    android:id="@+id/btnPrefClear"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnPrefRecord"
+                    android:id="@+id/btnPrefRec"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnPrefRetrive"
+                    android:id="@+id/btnPrefRetrive"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/btnSine"
                     android:id="@+id/btnSine"
                     android:onClick="Get_SOpertator"
@@ -273,6 +301,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
